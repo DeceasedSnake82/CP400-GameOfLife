@@ -1,0 +1,28 @@
+# Host timing per UI frame (simulate + draw). Host CPU numbers are only useful relative to each other.
+# Dense 512x512 soup dropped in the middle of the world, then watched at different zooms/speeds.
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key 0
+key EXE
+frames 20
+time overview_x1_dense
+key PLUS
+key PLUS
+key PLUS
+frames 20
+time z1px_x1_dense
+key PLUS
+key PLUS
+key PLUS
+frames 20
+time z6_x1
+key TIMES
+key TIMES
+key TIMES
+frames 20
+time z6_x8

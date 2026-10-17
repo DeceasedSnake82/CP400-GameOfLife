@@ -1,0 +1,62 @@
+# Walk through the UI; screenshots land in out/
+shot 01_start_dummy
+frames 1
+shot 01_start
+# toggle some cells by tapping, then drag-paint a line
+tap 60 60
+tap 66 60
+drag 100 100 200 100
+frames 1
+shot 02_edit
+# play for a few frames
+key EXE
+frames 10
+shot 03_running
+key EXE
+# zoom in / out with + and -
+key PLUS
+key PLUS
+frames 1
+shot 04_zoom_in
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+frames 1
+shot 05_zoom_out_1px
+key MINUS
+key MINUS
+key MINUS
+frames 1
+shot 06_zoom_out_overview
+# pattern + random + help
+key 1
+key PLUS
+key PLUS
+key PLUS
+key PLUS
+key PLUS
+key PLUS
+key PLUS
+key 5
+key 5
+frames 1
+shot 07_gun
+key EXE
+frames 200
+shot 08_gun_running
+key EXE
+key 0
+frames 1
+shot 09_random
+key EQUALS
+frames 1
+shot 10_help
+tap 10 10
+key BACKSPACE
+frames 1
+shot 11_clear_armed
+key BACKSPACE
+frames 1
+shot 12_cleared

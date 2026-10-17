@@ -1,0 +1,4 @@
+*.o
+*.elf
+*.map
+test/out/
