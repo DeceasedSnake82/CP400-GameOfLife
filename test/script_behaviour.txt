@@ -1,0 +1,50 @@
+# Behaviour checks (inspect the HUD strip of each shot).
+# pan with held arrows, clamp at the world edge, zoom keeps the view centre
+hold RIGHT 40
+frames 1
+shot a_pan_right
+hold LEFT 600
+hold UP 800
+frames 1
+shot b_clamped_top_left
+key PLUS
+key PLUS
+frames 1
+shot c_zoom_in_keeps_centre
+key 1
+# a single cell dies -> auto pause
+key BACKSPACE
+key BACKSPACE
+tap 160 200
+key EXE
+frames 3
+shot d_all_died
+# a 2x2 block (16px cells here) is a still life -> "STABLE"
+key PLUS
+key PLUS
+key PLUS
+tap 168 200
+tap 184 200
+tap 168 216
+tap 184 216
+key EXE
+frames 5
+shot e_stable
+# drag-paint at 1px per cell leaves a continuous line
+key BACKSPACE
+key BACKSPACE
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+key MINUS
+drag 40 60 280 300
+frames 1
+shot f_drag_1px
+# zoomed out: editing refused with a hint
+key MINUS
+tap 160 200
+frames 1
+shot g_edit_hint

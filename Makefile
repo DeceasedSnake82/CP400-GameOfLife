@@ -1,8 +1,6 @@
-APP_NAME:=app_template
+APP_NAME:=GameOfLife
 
-ifndef SDK_DIR
-$(error You need to define the SDK_DIR environment variable, and point it to the sdk/ folder)
-endif
+SDK_DIR?=/sdk
 
 AS:=sh4a_nofpueb-elf-gcc
 AS_FLAGS:=
@@ -13,7 +11,7 @@ CC:=sh4a_nofpueb-elf-gcc
 CC_FLAGS:=$(FUNCTION_FLAGS) -Wall -Wextra -I $(SDK_DIR)/include/
 
 CXX:=sh4a_nofpueb-elf-g++
-CXX_FLAGS:=$(FUNCTION_FLAGS) -Wall -Wextra -I $(SDK_DIR)/include/
+CXX_FLAGS:=$(FUNCTION_FLAGS) -Wall -Wextra -fno-exceptions -fno-rtti -I $(SDK_DIR)/include/
 
 LD:=sh4a_nofpueb-elf-g++
 LD_FLAGS:=$(FUNCTION_FLAGS) -Wl,--gc-sections -L$(SDK_DIR)
@@ -57,7 +55,8 @@ $(SDK_DIR)/libsdk.a:
 %.o: %.c
 	$(CC) -c $< -o $@ $(CC_FLAGS)
 
-%.o: %.cpp
+# Rebuild when headers change
+%.o: %.cpp $(wildcard *.h)
 	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
 .PHONY: elf hh3 all clean
